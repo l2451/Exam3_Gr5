@@ -8,12 +8,17 @@ def afficher_jours_examens(horaire_examen: dict) -> list[str]:
     :param horaire_examen: dictionnaire contenant les dates d'examens
     :return: une liste de jours de la semaine
     """
+    # Est iterable -> on  utilise un for .. in pour parcourir le dictionnaire
+    jours = [] # jour devrait être a l'exterieur
+
     for i in range(len(horaire_examen)):
-        jours = []
-        date = datetime.datetime.strptime(horaire_examen[i], "%Y-%m-%d")
-        j = date.strftime("%a")
+        date = datetime.datetime.strptime(horaire_examen[i], "%Y-%m-%d")  #
+
+        j = date.strftime("%Y-%m-%d")
         jours.append(j)
         return jours
+
+
 
 if __name__ == '__main__':
     horaire_examen = {
@@ -22,3 +27,8 @@ if __name__ == '__main__':
         "français" : "15/12/2025"
     }
     print("Les examens sont :", ", ".join(afficher_jours_examens(horaire_examen)))
+
+
+
+
+
